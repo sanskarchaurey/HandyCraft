@@ -1,10 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap'); 
- @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Dr+Sugiyama&display=swap');  */
+/* ============================================= */
+/* 1. FONT IMPORTS & GLOBAL VARIABLES            */
+/* ============================================= */
 
-/*
-   Note: For best performance, it's recommended to move @import statements
-   to the <head> of your HTML document using <link> tags.
-*/
+/* Note: It's best practice to link fonts in your HTML <head> for better performance. */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Dr+Sugiyama&display=swap');
 
 :root {
     --primary-color: #27ae60;
@@ -25,7 +25,7 @@
 }
 
 /* ============================================= */
-/* 1. RESET & BASE STYLES           */
+/* 2. RESET & BASE STYLES                        */
 /* ============================================= */
 
 * {
@@ -35,12 +35,10 @@
     text-decoration: none;
     outline: none;
     border: none;
-    transition: var(--transition-fast);
 }
 
 html {
-    font-size: 62.5%;
-    /* 1rem = 10px */
+    font-size: 62.5%; /* 1rem = 10px */
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -57,20 +55,16 @@ img {
     display: block;
 }
 
-/* ============================================= */
-/* 2. UTILITY CLASSES               */
-/* ============================================= */
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
 }
 
 .section-title {
     font-size: 3.5rem;
     color: var(--dark-color);
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     text-transform: uppercase;
     text-align: center;
     font-family: var(--font-primary);
@@ -90,32 +84,33 @@ img {
     background-color: var(--dark-color);
 }
 
-
 /* ============================================= */
-/* 3. HERO SECTION (#main)          */
+/* 3. HERO SECTION (#main)                       */
 /* ============================================= */
 
 #main {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     width: 100%;
+    min-height: 100vh;
 }
 
 .hero-left,
 .hero-right {
-    width: 100%;
-    min-height: 50vh;
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .hero-left {
     background: url('https://i.ibb.co/L5JgD97/h1-img-1.jpg') no-repeat center center/cover;
     color: var(--background-light);
     justify-content: center;
-    padding: 2rem;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 2rem;
+    min-height: 80vh;
 }
 
 .hero-nav {
@@ -152,13 +147,13 @@ img {
 
 .hero-text {
     max-width: 50rem;
-    margin-top: 5rem;
 }
 
 .hero-text h1 {
     font-family: var(--font-primary);
-    font-size: clamp(3rem, 5vw, 4.5rem); /* Responsive font size */
+    font-size: clamp(3.5rem, 8vw, 5rem); /* Responsive font size */
     line-height: 1.2;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .hero-button {
@@ -170,6 +165,7 @@ img {
     cursor: pointer;
     font-family: var(--font-primary);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-fast);
 }
 .hero-button:hover {
     background-color: #229954;
@@ -179,12 +175,14 @@ img {
 .hero-right {
     background-color: var(--background-light);
     align-items: center;
-    justify-content: space-between;
-    padding: 2rem;
+    justify-content: center;
+    padding: 4rem 2rem;
 }
 
 .hero-right-nav {
-    align-self: flex-end;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
 }
 .hero-right-nav a {
     color: var(--dark-color);
@@ -193,17 +191,15 @@ img {
 }
 
 .image-showcase {
-    width: clamp(28rem, 80%, 40rem); /* Responsive width */
+    width: clamp(28rem, 80vw, 40rem); /* Responsive width */
     height: auto;
     aspect-ratio: 4 / 5;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
 }
 
-.image-showcase img {
+.image-showcase .images {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -212,12 +208,12 @@ img {
     transition: opacity 0.5s ease-in-out;
 }
 
-.image-showcase img.active {
+.image-showcase .images.active {
     opacity: 1;
 }
 
 /* ============================================= */
-/* 4. PRODUCTS SECTION                  */
+/* 4. PRODUCTS SECTION                           */
 /* ============================================= */
 
 .products-container {
@@ -233,6 +229,7 @@ img {
     box-shadow: var(--shadow);
     border: 0.1rem solid #eee;
     cursor: pointer;
+    transition: var(--transition-fast);
 }
 
 .product:hover {
@@ -242,8 +239,8 @@ img {
 
 .product img {
     height: 20rem;
-    margin: 0 auto;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto;
+    transition: var(--transition-fast);
 }
 
 .product:hover img {
@@ -268,7 +265,7 @@ img {
 }
 
 /* ============================================= */
-/* 5. PRODUCT PREVIEW MODAL             */
+/* 5. PRODUCT PREVIEW MODAL                      */
 /* ============================================= */
 
 .products-preview {
@@ -282,16 +279,17 @@ img {
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    padding: 2rem;
 }
 
 .products-preview .preview {
     display: none; /* Toggled by JS */
-    padding: 2rem;
+    padding: 2.5rem;
     text-align: center;
     background: var(--background-light);
     position: relative;
-    margin: 2rem;
-    width: 40rem;
+    width: 100%;
+    max-width: 45rem;
     border-radius: .5rem;
 }
 
@@ -312,7 +310,8 @@ img {
 }
 
 .products-preview .preview img {
-    height: 30rem;
+    height: 25rem;
+    margin-bottom: 1rem;
 }
 
 .products-preview .preview .fa-times {
@@ -322,6 +321,7 @@ img {
     cursor: pointer;
     color: var(--light-dark-color);
     font-size: 4rem;
+    transition: var(--transition-fast);
 }
 
 .products-preview .preview .fa-times:hover {
@@ -339,14 +339,10 @@ img {
 .products-preview .preview .stars {
     padding: 1rem 0;
     font-size: 1.7rem;
-}
-
-.products-preview .preview .stars i {
     color: var(--primary-color);
 }
 
 .products-preview .preview p {
-    line-height: 1.5;
     padding: 1rem 0;
     font-size: 1.6rem;
     color: var(--text-color);
@@ -363,6 +359,7 @@ img {
     display: flex;
     gap: 1.5rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .products-preview .preview .buttons a {
@@ -372,6 +369,7 @@ img {
     color: var(--light-dark-color);
     border: .1rem solid var(--light-dark-color);
     text-align: center;
+    transition: var(--transition-fast);
 }
 
 .products-preview .preview .buttons a.cart {
@@ -387,7 +385,7 @@ img {
 }
 
 /* ============================================= */
-/* 6. FOOTER SECTION (#last)           */
+/* 6. FOOTER SECTION (#last)                     */
 /* ============================================= */
 
 #last {
@@ -408,6 +406,7 @@ img {
 .footer-upper-content h4 {
     font-size: 1.6rem;
     font-weight: 500;
+    font-family: var(--font-primary);
 }
 .footer-upper-content h1 {
     font-size: 3rem;
@@ -423,7 +422,7 @@ img {
 .footer-upper-image {
     width: 100%;
     min-height: 30rem;
-    background: url('https://i.ibb.co/L5JgD97/h1-img-1.jpg') no-repeat center center/cover; /* Placeholder */
+    background: url('https://i.ibb.co/L5JgD97/h1-img-1.jpg') no-repeat center center/cover;
 }
 
 
@@ -431,7 +430,7 @@ img {
     background: var(--background-dark);
     padding: 4rem 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: 1fr;
     gap: 3rem;
 }
 
@@ -452,6 +451,7 @@ img {
     margin-bottom: 1.5rem;
     padding-bottom: .5rem;
     border-bottom: .1rem solid rgba(255, 255, 255, 0.2);
+    color: var(--background-light);
 }
 
 .footer-col p,
@@ -461,6 +461,7 @@ img {
     display: block;
     margin-bottom: .8rem;
     font-weight: 300;
+    transition: var(--transition-fast);
 }
 
 .footer-col a:hover {
@@ -470,10 +471,18 @@ img {
 
 
 /* ============================================= */
-/* 7. RESPONSIVE DESIGN             */
+/* 7. RESPONSIVE DESIGN (MEDIA QUERIES)          */
 /* ============================================= */
 
-/* Tablet Styles */
+/* Small tablets */
+@media (min-width: 576px) {
+    .footer-lower {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* Tablets */
 @media (min-width: 768px) {
     html {
         font-size: 55%;
@@ -488,6 +497,12 @@ img {
         width: 50%;
         min-height: 100vh;
     }
+    
+    .hero-left {
+        align-items: flex-start;
+        text-align: left;
+        padding: 4rem;
+    }
 
     .hero-nav .nav-links a {
         display: inline-block; /* Show nav links */
@@ -495,10 +510,6 @@ img {
 
     .hero-nav .menu-icon {
         display: none; /* Hide hamburger menu */
-    }
-    
-    .hero-right {
-       justify-content: center;
     }
 
     .footer-upper {
@@ -514,20 +525,20 @@ img {
         padding: 5rem;
     }
     .footer-upper-content p {
-        margin: 0 0 2rem 0;
+        margin: 1.5rem 0 2.5rem 0;
     }
     .footer-upper-image {
         flex: 2;
         min-height: auto;
     }
+    .footer-lower {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
-/* Desktop Styles */
-@media (min-width: 991px) {
+/* Desktops */
+@media (min-width: 992px) {
     html {
         font-size: 62.5%; /* Reset to base */
     }
-
 }
-
-
